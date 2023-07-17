@@ -486,7 +486,7 @@ def _writer(r, p, key, type, value, ttl, expireat, use_expireat):
         for element, score in value:
             p.zadd(key, {element: float(score)})
     elif type == 'hash':
-        p.hmset(key, value)
+        p.hset(key, mapping=value)
     elif type is None:
         # Ignore None types
         pass
